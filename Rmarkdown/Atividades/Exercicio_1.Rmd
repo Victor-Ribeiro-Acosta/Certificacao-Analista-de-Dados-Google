@@ -1,0 +1,43 @@
+---
+title: "Penguins"
+author: "Victor"
+date: "2023-09-25"
+output: html_document
+---
+
+### Bibliotecas usadas:
+
+* ggplot2
+* palmerpenguins
+
+
+## *Visualizar Tabela de Dados*
+
+
+#### Código
+
+```{r bibliotecas, message=FALSE}
+
+library(tidyverse)
+library(palmerpenguins)
+
+```
+
+```{r tabela}
+
+data("penguins")
+penguins
+
+```
+
+
+## Vizualizar gráficos
+
+### Gráfico de relação entre tamanho e largura dos bicos das três espécies
+
+```{r Grafico1, message=FALSE}
+
+ggplot(data = drop_na(penguins), mapping = aes(x = bill_length_mm, bill_depth_mm, color = species)) + geom_point() + facet_wrap(~sex)
+
+```
+

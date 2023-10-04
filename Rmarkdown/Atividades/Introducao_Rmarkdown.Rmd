@@ -1,0 +1,54 @@
+---
+title: "Gráficos em R"
+author: "Victor"
+date: "2023-09-25"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## **Introdução ao R Markdown**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(ggplot2)
+library(palmerpenguins)
+data("diamonds")
+data("penguins")
+```
+
+
+### *Gráfico de Dispersão*
+```{r}
+
+ggplot(data=penguins, mapping = aes(x=bill_length_mm, 
+                                    y=bill_depth_mm,
+                                    color = species)) + 
+  geom_point()
+
+```
+
+
+### Gráfico de Barras
+```{r}
+
+ggplot(data=diamonds, aes(x=cut, fill=cut)) + geom_bar()
+
+```
+
+
+## Gráfico de Linhas
+
+```{r}
+
+ggplot(data=penguins, mapping = aes(x=flipper_length_mm,    
+                                    y=body_mass_g)) +
+  geom_smooth()
+
+```
+
+
